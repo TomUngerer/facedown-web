@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets"
+
+interface Props {
+	src: string
+	alt: string
+	eager?: boolean
+}
+const { src, alt, eager = false } = Astro.props
+---
+
+<div class="illustration">
+	<Image
+		src={src}
+		alt={alt}
+		width="512"
+		height="512"
+		loading={eager ? "eager" : "lazy"}
+		decoding="async"
+	/>
+</div>

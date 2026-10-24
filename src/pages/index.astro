@@ -1,0 +1,206 @@
+---
+import Base from "../layouts/Base.astro"
+import StoreButtons from "../components/StoreButtons.astro"
+import Phone from "../components/Phone.astro"
+import { SITE } from "../site"
+import Illustration from "../components/Illustration.astro"
+import { Image } from "astro:assets"
+
+const steps = [
+	{
+		title: "Peek",
+		text: "Your 4 cards start face down. Look at two of them, then trust your memory.",
+		shot: "/img/screens/1-peek.webp",
+		alt: "Two of your four cards turned face up to memorise",
+	},
+	{
+		title: "Swap",
+		text: "Draw from the deck or take the top of the trash, and keep your hand as low as you can.",
+		shot: "/img/screens/2-swap.webp",
+		alt: "Holding a drawn card, ready to swap it with one of yours",
+	},
+	{
+		title: "Slap!",
+		text: "Same rank on the trash as one of your cards? Slap it away before anyone else. Get it wrong and you take a penalty card.",
+		shot: "/img/screens/3-slap.webp",
+		alt: "The VS screen: three llamas against you",
+	},
+	{
+		title: "STOP!",
+		text: "Think you're the lowest? Call STOP. Everyone gets one last turn, then the cards are revealed. Get it wrong and you lose double.",
+		shot: "/img/screens/4-stop.webp",
+		alt: "A llama has called STOP",
+	},
+]
+
+const llamas = [
+	{ name: "Hans", img: "hans", note: "the monocle" },
+	{ name: "Fez", img: "fez", note: "the red hat" },
+	{ name: "Nick", img: "nick", note: "the notched ear" },
+	{ name: "Prof", img: "prof", note: "the moustache" },
+	{ name: "Dolly", img: "dolly", note: "the bow" },
+]
+
+const features = [
+	{ title: "Quick rounds", text: "A match fits in a coffee break." },
+	{
+		title: "Three bot levels",
+		text: "Easy, Medium or Hard, against 1, 2 or 3 llamas.",
+	},
+	{
+		title: "Daily challenge",
+		text: "The same deal for everyone, one try a day. Keep your streak going.",
+		gold: true,
+	},
+	{
+		title: "Action cards",
+		text: "The Q lets you peek. The Red 7 swaps a card with an opponent.",
+	},
+	{
+		title: "15 achievements",
+		text: "Perfect games, slap accuracy, winning streaks and full stats.",
+	},
+	{
+		title: "A friendly tutorial",
+		text: "The all-seeing eye walks you through your first round.",
+	},
+]
+---
+
+<Base>
+	<header class="hero">
+		<div class="wrap">
+			<div>
+				<h1 class="sr-only">Facedown</h1>
+				<div class="hero-logo-wrap">
+					<Image
+						class="hero-logo"
+						src="/img/faced_wn.webp"
+						alt="FACEDOWN"
+						width="1601"
+						height="243"
+						loading="eager"
+					/>
+					<Image
+						class="hero-logo-o"
+						src="/img/o-animation-243px.webp"
+						alt="O"
+						width="243"
+						height="243"
+						loading="eager"
+					/>
+				</div>
+				<p class="caption">{SITE.caption}</p>
+				<p class="lead">
+					Four cards, face down. Remember them, swap them, slap them away, and
+					call <strong>STOP!</strong> before the llamas do.
+				</p>
+				<StoreButtons />
+			</div>
+			<div class="hero-phones" aria-hidden="true">
+				<Phone src="/img/screens/02-menu.webp" alt="" eager />
+				<Phone src="/img/screens/07-results.webp" alt="" eager />
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<section id="how">
+			<div class="wrap">
+				<div class="eye">
+					<Image src="/img/eye.png" alt="" width="120" height="80" />
+					<p class="bubble">Hello there! Here's how the game works.</p>
+				</div>
+				<div class="section-head">
+					<h2>How it plays</h2>
+					<p>
+						Lose as few points as possible. Each round you lose what's left in
+						your hand. Last llama standing wins!
+					</p>
+				</div>
+				<div class="steps">
+					{
+						steps.map((s, i) => (
+							<article class="step">
+								<div class="text">
+									<span class="num">{i + 1}</span>
+									<div>
+										<h3>{s.title}</h3>
+										<p>{s.text}</p>
+									</div>
+								</div>
+								<Illustration src={s.shot} alt={s.alt} />
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<section id="llamas">
+			<div class="wrap">
+				<div class="section-head">
+					<h2>Meet the llamas</h2>
+					<p>
+						Fast, sneaky, and they never forget a card. <br />Pick your
+						favourite as your own avatar.
+					</p>
+				</div>
+				<ul class="llamas">
+					{
+						llamas.map((l) => (
+							<li class="llama">
+								<img
+									class="still"
+									src={`/img/llamas/${l.img}.webp`}
+									alt={`${l.name}, ${l.note}`}
+									width="320"
+									height="320"
+									loading="lazy"
+								/>
+								<img
+									class="anim"
+									src={`/img/llamas/${l.img}-animated.webp`}
+									alt=""
+									width="320"
+									height="320"
+									loading="lazy"
+								/>
+								{l.name}
+								<span>{l.note}</span>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</section>
+
+		<section id="features">
+			<div class="wrap">
+				<div class="section-head">
+					<h2>What's inside</h2>
+				</div>
+				<ul class="features">
+					{
+						features.map((f) => (
+							<li class:list={["feature", { gold: f.gold }]}>
+								<h3>{f.title}</h3>
+								<p>{f.text}</p>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</section>
+
+		<section class="cta">
+			<div class="wrap">
+				<h2>Don't let the llamas win</h2>
+				<p class="accent" style="margin:0;font-weight:700">
+					Coming soon to Android and iPhone.
+				</p>
+				<StoreButtons tone="red" />
+			</div>
+		</section>
+	</main>
+</Base>

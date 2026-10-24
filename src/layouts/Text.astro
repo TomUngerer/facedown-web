@@ -1,0 +1,15 @@
+---
+// Layout for Markdown pages (privacy policy): the eye on top, a white card with the text, a way back.
+import Base from "./Base.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Base title={frontmatter.title} description={frontmatter.description}>
+	<div class="page-top">
+		<a href="/" aria-label="Facedown home"><img src="/img/eye.png" alt="" width="120" height="80" /></a>
+	</div>
+	<main class="content">
+		<slot />
+	</main>
+	<a class="back" href="/">← Back to Facedown</a>
+</Base>

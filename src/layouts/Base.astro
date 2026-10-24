@@ -1,0 +1,66 @@
+---
+import "../styles/global.css"
+import { SITE } from "../site"
+
+interface Props {
+	title?: string
+	description?: string
+}
+const { title, description = SITE.description } = Astro.props
+const fullTitle = title
+	? `${title} · ${SITE.name}`
+	: `${SITE.name}: ${SITE.caption}`
+const canonical = new URL(Astro.url.pathname, SITE.url)
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{fullTitle}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		<link
+			rel="icon"
+			type="image/png"
+			href="/favicon/favicon-96x96.png"
+			sizes="96x96"
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+		<link rel="shortcut icon" href="/favicon/favicon.ico" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/favicon/apple-touch-icon.png"
+		/>
+		<meta name="apple-mobile-web-app-title" content="FACEDOWN" />
+		<link rel="manifest" href="/favicon/site.webmanifest" />
+		<link
+			rel="preload"
+			href="/fonts/sen-latin.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<meta name="theme-color" content="#EF4251" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={fullTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={new URL("/img/og.png", SITE.url)} />
+		<meta name="twitter:card" content="summary_large_image" />
+	</head>
+	<body>
+		<slot />
+		<footer class="footer">
+			<div class="wrap">
+				<p>Facedown © {new Date().getFullYear()} · Made in Marseille</p>
+				<nav aria-label="Footer">
+					<a href="/privacy/">Privacy policy</a>
+					<a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+				</nav>
+			</div>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets"
+
+interface Props {
+	src: string
+	alt: string
+	eager?: boolean
+}
+const { src, alt, eager = false } = Astro.props
+---
+
+<div class="phone">
+	<Image
+		src={src}
+		alt={alt}
+		width="540"
+		height="1080"
+		loading={eager ? "eager" : "lazy"}
+		decoding="async"
+	/>
+</div>

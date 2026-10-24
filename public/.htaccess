@@ -1,0 +1,22 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+# Do NOT rewrite PHP files
+
+RewriteCond %{REQUEST_URI} \.php$ [NC]
+RewriteRule ^ - [L]
+
+# SPA fallback for Astro build
+
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule . /index.html [L]
+
+# Force HTTPS
+
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.\*)$ https://facedown.io/$1 [R,L]
+</IfModule>
