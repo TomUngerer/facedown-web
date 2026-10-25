@@ -363,20 +363,23 @@ section {
 }
 .step {
 	display: grid;
-	gap: 1.2rem;
 	align-items: center;
+	max-width: 492px;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	justify-content: center;
 }
 .step .num {
 	display: inline-grid;
 	place-items: center;
-	width: 44px;
-	height: 44px;
+	width: 36px;
+	height: 36px;
 	border-radius: 50%;
 	background: var(--accent);
-	box-shadow: 0 4px 0 var(--accent-lip);
+	box-shadow: 0 2px 0 var(--accent-lip);
 	font-weight: 800;
 	font-size: 1.2rem;
-	margin-bottom: 0.8rem;
 }
 
 .step .text {
@@ -386,6 +389,11 @@ section {
 
 .step h3 {
 	font-size: 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.8rem;
+	padding-right: 0.8rem;
 }
 .step p {
 	color: var(--faded);
@@ -559,6 +567,12 @@ section {
 }
 
 /* ---------------------------------------------------------------- larger screens */
+
+@media (min-width: 670px) {
+	.features {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
 @media (min-width: 820px) {
 	.hero {
 		padding-top: 5rem;
@@ -582,15 +596,19 @@ section {
 	.step .phone {
 		width: 200px;
 	}
-	.features {
-		grid-template-columns: repeat(3, 1fr);
-	}
 }
 
 @media (max-width: 800px) {
 	.content {
 		margin-left: 12px;
 		margin-right: 12px;
+	}
+}
+
+@media (max-width: 570px) {
+	.footer .wrap {
+		justify-content: center;
+		text-align: center;
 	}
 }
 @media (min-width: 980px) {
@@ -600,6 +618,9 @@ section {
 	}
 	.step {
 		grid-template-columns: 1fr auto;
+	}
+	.features {
+		grid-template-columns: repeat(3, 1fr);
 	}
 }
 

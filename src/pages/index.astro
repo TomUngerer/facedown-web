@@ -11,34 +11,34 @@ const steps = [
 		title: "Peek",
 		text: "Your 4 cards start face down. Look at two of them, then trust your memory.",
 		shot: "/img/screens/1-peek.webp",
-		alt: "Two of your four cards turned face up to memorise",
+		alt: "Two Queens with their PEEK! label",
 	},
 	{
 		title: "Swap",
 		text: "Draw from the deck or take the top of the trash, and keep your hand as low as you can.",
 		shot: "/img/screens/2-swap.webp",
-		alt: "Holding a drawn card, ready to swap it with one of yours",
+		alt: "Two red 7s with their SWAP! label",
 	},
 	{
 		title: "Slap!",
 		text: "Same rank on the trash as one of your cards? Slap it away before anyone else. Get it wrong and you take a penalty card.",
 		shot: "/img/screens/3-slap.webp",
-		alt: "The VS screen: three llamas against you",
+		alt: "Hans slapping an Ace onto the trash",
 	},
 	{
 		title: "STOP!",
 		text: "Think you're the lowest? Call STOP. Everyone gets one last turn, then the cards are revealed. Get it wrong and you lose double.",
 		shot: "/img/screens/4-stop.webp",
-		alt: "A llama has called STOP",
+		alt: "A llama calling STOP!",
 	},
 ]
 
 const llamas = [
-	{ name: "Hans", img: "hans", note: "the monocle" },
-	{ name: "Fez", img: "fez", note: "the red hat" },
-	{ name: "Nick", img: "nick", note: "the notched ear" },
-	{ name: "Prof", img: "prof", note: "the moustache" },
-	{ name: "Dolly", img: "dolly", note: "the bow" },
+	{ name: "Hans", img: "hans" },
+	{ name: "Fez", img: "fez" },
+	{ name: "Nick", img: "nick" },
+	{ name: "Prof", img: "prof" },
+	{ name: "Dolly", img: "dolly" },
 ]
 
 const features = [
@@ -57,7 +57,7 @@ const features = [
 		text: "The Q lets you peek. The Red 7 swaps a card with an opponent.",
 	},
 	{
-		title: "15 achievements",
+		title: "16 achievements",
 		text: "Perfect games, slap accuracy, winning streaks and full stats.",
 	},
 	{
@@ -98,8 +98,8 @@ const features = [
 				<StoreButtons />
 			</div>
 			<div class="hero-phones" aria-hidden="true">
-				<Phone src="/img/screens/02-menu.webp" alt="" eager />
-				<Phone src="/img/screens/07-results.webp" alt="" eager />
+				<Phone src="/img/screens/05-your-turn.webp" alt="" eager />
+				<Phone src="/img/screens/06-stop.webp" alt="" eager />
 			</div>
 		</div>
 	</header>
@@ -108,8 +108,10 @@ const features = [
 		<section id="how">
 			<div class="wrap">
 				<div class="eye">
-					<Image src="/img/eye.png" alt="" width="120" height="80" />
-					<p class="bubble">Hello there! Here's how the game works.</p>
+					<Image src="/img/allseeingeye.webp" alt="" width="120" height="120" />
+					<p class="bubble">
+						<strong>Hello there!</strong><br /> Here's how the game works.
+					</p>
 				</div>
 				<div class="section-head">
 					<h2>How it plays</h2>
@@ -123,9 +125,11 @@ const features = [
 						steps.map((s, i) => (
 							<article class="step">
 								<div class="text">
-									<span class="num">{i + 1}</span>
 									<div>
-										<h3>{s.title}</h3>
+										<h3>
+											<span class="num">{i + 1}</span>
+											{s.title}
+										</h3>
 										<p>{s.text}</p>
 									</div>
 								</div>
@@ -153,7 +157,7 @@ const features = [
 								<img
 									class="still"
 									src={`/img/llamas/${l.img}.webp`}
-									alt={`${l.name}, ${l.note}`}
+									alt={`${l.name}`}
 									width="320"
 									height="320"
 									loading="lazy"
@@ -167,7 +171,6 @@ const features = [
 									loading="lazy"
 								/>
 								{l.name}
-								<span>{l.note}</span>
 							</li>
 						))
 					}
