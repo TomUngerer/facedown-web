@@ -5,8 +5,10 @@ import { SITE } from "../site"
 interface Props {
 	title?: string
 	description?: string
+	lang?: "en" | "fr"
 }
-const { title, description = SITE.description } = Astro.props
+const { title, description = SITE.description, lang = "en" } = Astro.props
+const isFrench = lang === "fr"
 const fullTitle = title
 	? `${title} · ${SITE.name}`
 	: `${SITE.name}: ${SITE.caption}`
@@ -14,7 +16,7 @@ const canonical = new URL(Astro.url.pathname, SITE.url)
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -55,9 +57,15 @@ const canonical = new URL(Astro.url.pathname, SITE.url)
 		<slot />
 		<footer class="footer">
 			<div class="wrap">
-				<p>Facedown © {new Date().getFullYear()} · Made in Marseille</p>
-				<nav aria-label="Footer">
-					<a href="/privacy/">Privacy policy</a>
+				<p>
+					Facedown © {new Date().getFullYear()} · {
+						isFrench ? "Créé à Marseille" : "Made in Marseille"
+					}
+				</p>
+				<nav aria-label={isFrench ? "Pied de page" : "Footer"}>
+					<a href="/privacy/"
+						>{isFrench ? "Confidentialité (en anglais)" : "Privacy policy"}</a
+					>
 					<a href={`mailto:${SITE.email}`}>{SITE.email}</a>
 				</nav>
 			</div>

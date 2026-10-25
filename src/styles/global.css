@@ -223,9 +223,34 @@ h3 {
 }
 .hero .wrap {
 	display: grid;
+	position: relative;
 	gap: 2.5rem;
 	align-items: center;
 	justify-content: center;
+}
+.language-switch {
+	position: absolute;
+	top: -2.5rem;
+	right: 1.25rem;
+	display: inline-flex;
+	padding: 3px;
+	border: 1px solid #b8c0c2;
+	border-radius: 999px;
+	background: #fff;
+	line-height: 1;
+	z-index: 2;
+}
+.language-switch a {
+	min-width: 38px;
+	padding: 0.5rem 0.6rem;
+	border-radius: 999px;
+	color: var(--bg);
+	font-size: 0.8rem;
+	font-weight: 800;
+}
+.language-switch a[aria-current="page"] {
+	background: var(--gold);
+	color: var(--bg);
 }
 .hero-logo-wrap {
 	display: flex;
@@ -327,7 +352,7 @@ section {
 }
 .section-head {
 	text-align: center;
-	max-width: 36rem;
+	max-width: 37rem;
 	margin: 0 auto 2.8rem;
 }
 .section-head p {

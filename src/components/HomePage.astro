@@ -1,0 +1,293 @@
+---
+import Base from "../layouts/Base.astro"
+import StoreButtons from "./StoreButtons.astro"
+import Phone from "./Phone.astro"
+import Illustration from "./Illustration.astro"
+import { Image } from "astro:assets"
+
+interface Props {
+	lang: "en" | "fr"
+}
+
+const { lang } = Astro.props
+const isFrench = lang === "fr"
+const copy = isFrench
+	? {
+			caption: "Des réflexes rapides. Une mémoire d’éléphant, pas d'un lama !",
+			lead: "Quatre cartes face cachée. Mémorise-les, échange-les, claque-les et crie STOP avant les lamas.",
+			greeting: "Salut à toi !",
+			instructions: "Voici comment jouer.",
+			howTitle: "Comment jouer",
+			howText:
+				"Essaie de marquer le moins de points possible. À chaque manche, les points de tes cartes restantes s’ajoutent à ton score. Le dernier lama en jeu gagne !",
+			llamasTitle: "Voici les lamas",
+			llamasText:
+				"Rapides, rusés et ils n’oublient jamais une carte. Choisis ton préféré comme avatar.",
+			featuresTitle: "Au programme",
+			ctaTitle: "Ne laissez pas gagner les lamas",
+			comingSoon: "Bientôt sur Android et iPhone.",
+			steps: [
+				{
+					title: "Jetez un œil",
+					text: "Tes 4 cartes commencent face cachée. Regarde-en deux, puis fais confiance à ta mémoire.",
+					alt: "Deux dames et l’étiquette PEEK !",
+				},
+				{
+					title: "Échangez",
+					text: "Pioche une carte ou prends celle au-dessus de la défausse, et garde une main aussi basse que possible.",
+					alt: "Deux 7 rouges et l’étiquette SWAP !",
+				},
+				{
+					title: "Claquez !",
+					text: "La carte défaussée a le même rang qu’une de tes cartes ? Claque-la avant les autres. Si tu te trompes, tu prends une carte de pénalité.",
+					alt: "Hans claque un as sur la défausse",
+				},
+				{
+					title: "STOP !",
+					text: "Tu penses avoir le score le plus bas ? Crie STOP. Tout le monde joue encore une fois, puis les cartes sont révélées. Si tu te trompes, tu perds le double.",
+					alt: "Un lama crie STOP !",
+				},
+			],
+			features: [
+				{
+					title: "Des manches rapides",
+					text: "Une partie tient dans une pause-café.",
+				},
+				{
+					title: "Trois niveaux de bots",
+					text: "Facile, moyen ou difficile, contre 1, 2 ou 3 lamas.",
+				},
+				{
+					title: "Défi quotidien",
+					text: "La même donne pour tout le monde, une tentative par jour. Gardez votre série.",
+					gold: true,
+				},
+				{
+					title: "Cartes action",
+					text: "La dame te permet de regarder. Le 7 rouge échange une carte avec un adversaire.",
+				},
+				{
+					title: "16 succès",
+					text: "Parties parfaites, précision des claques, séries de victoires et statistiques complètes.",
+				},
+				{
+					title: "Un tutoriel sympa",
+					text: "L’œil omniscient t’accompagne pendant ta première manche.",
+				},
+			],
+		}
+	: {
+			caption: "Fast hands. Sharp memory.",
+			lead: "Four cards, face down. Remember them, swap them, slap them away, and call STOP before the llamas do.",
+			greeting: "Hello there!",
+			instructions: "Here's how the game works.",
+			howTitle: "How it plays",
+			howText:
+				"Lose as few points as possible. Each round you lose what's left in your hand. Last llama standing wins!",
+			llamasTitle: "Meet the llamas",
+			llamasText:
+				"Fast, sneaky, and they never forget a card. Pick your favourite as your own avatar.",
+			featuresTitle: "What's inside",
+			ctaTitle: "Don't let the llamas win",
+			comingSoon: "Coming soon to Android and iPhone.",
+			steps: [
+				{
+					title: "Peek",
+					text: "Your 4 cards start face down. Look at two of them, then trust your memory.",
+					alt: "Two Queens with their PEEK! label",
+				},
+				{
+					title: "Swap",
+					text: "Draw from the deck or take the top of the trash, and keep your hand as low as you can.",
+					alt: "Two red 7s with their SWAP! label",
+				},
+				{
+					title: "Slap!",
+					text: "Same rank on the trash as one of your cards? Slap it away before anyone else. Get it wrong and you take a penalty card.",
+					alt: "Hans slapping an Ace onto the trash",
+				},
+				{
+					title: "STOP!",
+					text: "Think you're the lowest? Call STOP. Everyone gets one last turn, then the cards are revealed. Get it wrong and you lose double.",
+					alt: "A llama calling STOP!",
+				},
+			],
+			features: [
+				{ title: "Quick rounds", text: "A match fits in a coffee break." },
+				{
+					title: "Three bot levels",
+					text: "Easy, Medium or Hard, against 1, 2 or 3 llamas.",
+				},
+				{
+					title: "Daily challenge",
+					text: "The same deal for everyone, one try a day. Keep your streak going.",
+					gold: true,
+				},
+				{
+					title: "Action cards",
+					text: "The Q lets you peek. The Red 7 swaps a card with an opponent.",
+				},
+				{
+					title: "16 achievements",
+					text: "Perfect games, slap accuracy, winning streaks and full stats.",
+				},
+				{
+					title: "A friendly tutorial",
+					text: "The all-seeing eye walks you through your first round.",
+				},
+			],
+		}
+
+const languageHref = isFrench ? "/" : "/fr/"
+const description = isFrench
+	? "Facedown, un jeu de cartes rapide où mémoire et réflexes font la différence. Regardez, échangez, claquez et criez STOP avant les lamas."
+	: "Facedown is a fast card game of memory and quick hands: peek, swap, slap and call STOP before the llamas do. Coming to Android and iPhone."
+const llamas = ["Hans", "Fez", "Nick", "Prof", "Dolly"]
+---
+
+<Base
+	lang={lang}
+	title={isFrench ? "Des réflexes rapides. Une mémoire d’éléphant." : undefined}
+	description={description}>
+	<header class="hero">
+		<div class="wrap">
+			<nav
+				class="language-switch"
+				aria-label={isFrench ? "Choisir la langue" : "Choose language"}>
+				<a href="/" aria-current={!isFrench ? "page" : undefined}>EN</a>
+				<a href="/fr/" aria-current={isFrench ? "page" : undefined}>FR</a>
+			</nav>
+			<div>
+				<h1 class="sr-only">Facedown</h1>
+				<div class="hero-logo-wrap">
+					<Image
+						class="hero-logo"
+						src="/img/faced_wn.webp"
+						alt="FACEDOWN"
+						width="1601"
+						height="243"
+						loading="eager"
+					/>
+					<Image
+						class="hero-logo-o"
+						src="/img/o-animation-243px.webp"
+						alt="O"
+						width="243"
+						height="243"
+						loading="eager"
+					/>
+				</div>
+				<p class="caption">{copy.caption}</p>
+				<p class="lead">{copy.lead}</p>
+				<StoreButtons lang={lang} />
+			</div>
+			<div class="hero-phones" aria-hidden="true">
+				<Phone src="/img/screens/05-your-turn.webp" alt="" eager />
+				<Phone src="/img/screens/06-stop.webp" alt="" eager />
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<section id="how">
+			<div class="wrap">
+				<div class="eye">
+					<Image src="/img/allseeingeye.webp" alt="" width="120" height="120" />
+					<p class="bubble">
+						<strong>{copy.greeting}</strong><br />
+						{copy.instructions}
+					</p>
+				</div>
+				<div class="section-head">
+					<h2>{copy.howTitle}</h2>
+					<p>{copy.howText}</p>
+				</div>
+				<div class="steps">
+					{
+						copy.steps.map((step, i) => (
+							<article class="step">
+								<div class="text">
+									<div>
+										<>
+											<h3>
+												<span class="num">{i + 1}</span>
+												{step.title}
+											</h3>
+											<p>{step.text}</p>
+										</>
+									</div>
+								</div>
+								<Illustration
+									src={`/img/screens/${i + 1}-${["peek", "swap", "slap", "stop"][i]}.webp`}
+									alt={step.alt}
+								/>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<section id="llamas">
+			<div class="wrap">
+				<div class="section-head">
+					<h2>{copy.llamasTitle}</h2><p>{copy.llamasText}</p>
+				</div>
+				<ul class="llamas">
+					{
+						llamas.map((name) => {
+							const img = name.toLowerCase()
+							return (
+								<li class="llama">
+									<img
+										class="still"
+										src={`/img/llamas/${img}.webp`}
+										alt={name}
+										width="320"
+										height="320"
+										loading="lazy"
+									/>
+									<img
+										class="anim"
+										src={`/img/llamas/${img}-animated.webp`}
+										alt=""
+										width="320"
+										height="320"
+										loading="lazy"
+									/>
+									{name}
+								</li>
+							)
+						})
+					}
+				</ul>
+			</div>
+		</section>
+
+		<section id="features">
+			<div class="wrap">
+				<div class="section-head"><h2>{copy.featuresTitle}</h2></div>
+				<ul class="features">
+					{
+						copy.features.map((feature) => (
+							<li class:list={["feature", { gold: feature.gold }]}>
+								<>
+									<h3>{feature.title}</h3>
+									<p>{feature.text}</p>
+								</>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</section>
+
+		<section class="cta">
+			<div class="wrap">
+				<h2>{copy.ctaTitle}</h2>
+				<p class="accent" style="margin:0;font-weight:700">{copy.comingSoon}</p>
+				<StoreButtons tone="red" lang={lang} />
+			</div>
+		</section>
+	</main>
+</Base>
