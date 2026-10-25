@@ -172,6 +172,19 @@ h3 {
 	box-shadow: 0 5px 0 #a8aeb0;
 	color: var(--bg);
 }
+.button.gold {
+	background-color: var(--gold);
+	box-shadow: 0 5px 0 #d9a03c;
+	color: var(--bg);
+}
+.button.gold:hover {
+	background-color: #ffd07a;
+	color: var(--bg);
+}
+.button.gold[aria-disabled="true"] {
+	background-color: var(--gold);
+	box-shadow: 0 2px 0 #d9a03c;
+}
 .button[aria-disabled="true"] {
 	cursor: default;
 	transform: translateY(3px);
@@ -206,11 +219,13 @@ h3 {
 	color: var(--bg);
 	padding: 3.5rem 0 0;
 	overflow: hidden;
+	text-align: center;
 }
 .hero .wrap {
 	display: grid;
 	gap: 2.5rem;
 	align-items: center;
+	justify-content: center;
 }
 .hero-logo-wrap {
 	display: flex;
@@ -218,6 +233,7 @@ h3 {
 	gap: 0.6rem;
 	position: relative;
 	margin-bottom: 1.4rem;
+	margin-inline: auto;
 	width: min(520px, 100%);
 }
 .hero-logo {
@@ -242,6 +258,7 @@ h3 {
 	max-width: 30rem;
 	font-size: 1.1rem;
 	margin-bottom: 1.8rem;
+	margin-inline: auto;
 }
 .hero .lead strong {
 	color: var(--accent);
@@ -250,8 +267,8 @@ h3 {
 .stores {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	gap: 0.9rem 1rem;
-	margin-bottom: 2.5rem;
 }
 .hero-phones {
 	position: relative;
@@ -573,7 +590,7 @@ section {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
-@media (min-width: 820px) {
+@media (min-width: 850px) {
 	.hero {
 		padding-top: 5rem;
 	}

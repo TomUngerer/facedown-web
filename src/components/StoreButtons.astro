@@ -4,7 +4,6 @@ import { SITE } from "../site"
 interface Props {
 	tone?: "navy" | "red"
 }
-const { tone = "navy" } = Astro.props
 const stores = [
 	{ name: "Google Play", href: SITE.googlePlay, icon: "play" },
 	{ name: "App Store", href: SITE.appStore, icon: "phone" },
@@ -15,15 +14,10 @@ const stores = [
 	{
 		stores.map((s) => {
 			const live = !!s.href
-			const cls = live
-				? tone === "red"
-					? "button"
-					: "button navy"
-				: "button light"
+			const cls = "button gold"
 			return (
 				<a
 					class={cls}
-					style={{ width: 202 + "px" }}
 					href={live ? s.href : undefined}
 					aria-disabled={live ? undefined : "true"}
 					target={live ? "_blank" : undefined}
