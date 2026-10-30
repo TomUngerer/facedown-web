@@ -14,7 +14,7 @@ const isFrench = lang === "fr"
 const copy = isFrench
 	? {
 			caption: "Des réflexes rapides. Une mémoire d’éléphant, pas d'un lama !",
-			lead: "Quatre cartes face cachée. Mémorise-les, échange-les, claque-les et crie STOP avant les lamas.",
+			lead: "Quatre cartes face cachée. Mémorise-les, échange-les, tape-les et dis STOP avant les lamas.",
 			greeting: "Salut à toi !",
 			instructions: "Voici comment jouer.",
 			howTitle: "Comment jouer",
@@ -22,57 +22,57 @@ const copy = isFrench
 				"Essaie de marquer le moins de points possible. À chaque manche, les points de tes cartes restantes s’ajoutent à ton score. Le dernier lama en jeu gagne !",
 			llamasTitle: "Voici les lamas",
 			llamasText:
-				"Rapides, rusés et ils n’oublient jamais une carte. Choisis ton préféré comme avatar.",
+				"Hans, Fez, Nick, Prof, Dolly et Rob sont rapides, rusés et n’oublient jamais une carte. Affronte-en un, deux ou trois, et choisis ton préféré comme avatar.",
 			featuresTitle: "Au programme",
-			ctaTitle: "Ne laissez pas gagner les lamas",
-			comingSoon: "Bientôt sur Android et iPhone.",
+			ctaTitle: "Ne laisse pas gagner les lamas",
+			comingSoon: "Bientôt sur Android.",
 			steps: [
 				{
-					title: "Jetez un œil",
+					title: "Jette un œil",
 					text: "Tes 4 cartes commencent face cachée. Regarde-en deux, puis fais confiance à ta mémoire.",
 					alt: "Deux dames et l’étiquette PEEK !",
 				},
 				{
-					title: "Échangez",
-					text: "Pioche une carte ou prends celle au-dessus de la défausse, et garde une main aussi basse que possible.",
+					title: "Échange",
+					text: "Pioche une carte ou prends celle du dessus de la défausse, et garde une main aussi basse que possible.",
 					alt: "Deux 7 rouges et l’étiquette SWAP !",
 				},
 				{
-					title: "Claquez !",
-					text: "La carte défaussée a le même rang qu’une de tes cartes ? Claque-la avant les autres. Si tu te trompes, tu prends une carte de pénalité.",
-					alt: "Hans claque un as sur la défausse",
+					title: "Tape !",
+					text: "La carte du dessus de la défausse a la même valeur qu’une de tes cartes ? Tape-la avant les autres. Si tu te trompes, tu prends une carte de pénalité.",
+					alt: "Hans tape un as sur la défausse",
 				},
 				{
 					title: "STOP !",
-					text: "Tu penses avoir le score le plus bas ? Crie STOP. Tout le monde joue encore une fois, puis les cartes sont révélées. Si tu te trompes, tu perds le double.",
+					text: "Tu penses avoir le total le plus bas ? Dis STOP. Tout le monde joue encore une fois, puis les cartes sont révélées. Si tu te trompes, tu perds le double.",
 					alt: "Un lama crie STOP !",
 				},
 			],
 			features: [
 				{
 					title: "Des manches rapides",
-					text: "Une partie tient dans une pause-café.",
+					text: "Une partie tient dans une pause-café. Joue aux points, ou en 1, 2 ou 3 manches gagnantes.",
 				},
 				{
 					title: "Trois niveaux de bots",
-					text: "Facile, moyen ou difficile, contre 1, 2 ou 3 lamas.",
+					text: "Facile, Moyen ou Difficile, contre 1, 2 ou 3 lamas. Les lamas difficiles se souviennent de ce qu’ils ont vu.",
 				},
 				{
-					title: "Défi quotidien",
-					text: "La même donne pour tout le monde, une tentative par jour. Gardez votre série.",
+					title: "Défi du jour",
+					text: "3 manches, les mêmes donnes pour tout le monde, un essai par jour. Garde ta série, retrouve chaque jour dans le calendrier et partage ton résultat.",
 					gold: true,
 				},
 				{
 					title: "Cartes action",
-					text: "La dame te permet de regarder. Le 7 rouge échange une carte avec un adversaire.",
+					text: "La Dame te laisse regarder une carte. Le 7 rouge échange une carte avec un adversaire.",
 				},
 				{
-					title: "16 succès",
-					text: "Parties parfaites, précision des claques, séries de victoires et statistiques complètes.",
+					title: "16 trophées et des stats",
+					text: "Parties parfaites, précision des tapes, séries de victoires et ton lama préféré.",
 				},
 				{
 					title: "Un tutoriel sympa",
-					text: "L’œil omniscient t’accompagne pendant ta première manche.",
+					text: "L’œil qui voit tout t’accompagne pendant ta première manche.",
 				},
 			],
 		}
@@ -86,10 +86,10 @@ const copy = isFrench
 				"Lose as few points as possible. Each round you lose what's left in your hand. Last llama standing wins!",
 			llamasTitle: "Meet the llamas",
 			llamasText:
-				"Fast, sneaky, and they never forget a card. Pick your favourite as your own avatar.",
+				"Hans, Fez, Nick, Prof, Dolly and Rob are fast, sneaky, and they never forget a card. Take on one, two or three of them, and pick your favourite as your own avatar.",
 			featuresTitle: "What's inside",
 			ctaTitle: "Don't let the llamas win",
-			comingSoon: "Coming soon to Android and iPhone.",
+			comingSoon: "Coming soon to Android.",
 			steps: [
 				{
 					title: "Peek",
@@ -113,14 +113,17 @@ const copy = isFrench
 				},
 			],
 			features: [
-				{ title: "Quick rounds", text: "A match fits in a coffee break." },
+				{
+					title: "Quick rounds",
+					text: "A match fits in a coffee break. Play on points, or race to win 1, 2 or 3 rounds.",
+				},
 				{
 					title: "Three bot levels",
-					text: "Easy, Medium or Hard, against 1, 2 or 3 llamas.",
+					text: "Easy, Medium or Hard, against 1, 2 or 3 llamas. Hard llamas remember what they've seen.",
 				},
 				{
 					title: "Daily challenge",
-					text: "The same deal for everyone, one try a day. Keep your streak going.",
+					text: "3 rounds, the same deals for everyone, one try a day. Keep your streak, look back on every day in the calendar and share your result.",
 					gold: true,
 				},
 				{
@@ -128,8 +131,8 @@ const copy = isFrench
 					text: "The Q lets you peek. The Red 7 swaps a card with an opponent.",
 				},
 				{
-					title: "16 achievements",
-					text: "Perfect games, slap accuracy, winning streaks and full stats.",
+					title: "16 achievements and stats",
+					text: "Perfect games, slap accuracy, winning streaks and your favourite llama.",
 				},
 				{
 					title: "A friendly tutorial",
@@ -140,9 +143,9 @@ const copy = isFrench
 
 const languageHref = isFrench ? "/" : "/fr/"
 const description = isFrench
-	? "Facedown, un jeu de cartes rapide où mémoire et réflexes font la différence. Regardez, échangez, claquez et criez STOP avant les lamas."
-	: "Facedown is a fast card game of memory and quick hands: peek, swap, slap and call STOP before the llamas do. Coming to Android and iPhone."
-const llamas = ["Hans", "Fez", "Nick", "Prof", "Dolly"]
+	? "Facedown, un jeu de cartes rapide où mémoire et réflexes font la différence. Regarde, échange, tape et dis STOP avant les lamas. Bientôt sur Android."
+	: "Facedown is a fast card game of memory and quick hands: peek, swap, slap and call STOP before the llamas do. Coming soon to Android."
+const llamas = ["Hans", "Fez", "Nick", "Prof", "Dolly", "Rob"]
 ---
 
 <Base

@@ -9,7 +9,8 @@ const { lang = "en" } = Astro.props
 const isFrench = lang === "fr"
 const stores = [
 	{ name: "Google Play", href: SITE.googlePlay, icon: "play" },
-	{ name: "App Store", href: SITE.appStore, icon: "phone" },
+	// App Store only once Google Play has earned $100 (Tom, Oct 30): it comes back when SITE.appStore is set.
+	...(SITE.appStore ? [{ name: "App Store", href: SITE.appStore, icon: "phone" }] : []),
 ]
 ---
 
