@@ -8,7 +8,7 @@ description: How Facedown handles your data.
 
 **Last updated: 23 October 2026**
 
-Facedown ("the game", "we") is a card game for Android and iOS made by Thomas Ungerer-Rehkopf, an independent developer based in Marseille, France. This policy explains what information the game uses, why, and the choices you have.
+Facedown ("the game", "we") is a card game for Android and iOS made by **[Tom Ungerer](https://tomungerer.com)**, an independent developer based in Marseille, France. This policy explains what information the game uses, why, and the choices you have.
 
 The short version: **Facedown has no accounts and we don't collect your personal information.** Your settings and stats stay on your phone. If ads are shown, Google's advertising service may collect some device information, and in the EU and UK it asks for your consent first.
 
@@ -71,6 +71,6 @@ If this policy changes, for example when a new feature is added, the new version
 
 Questions about privacy or the game:
 
-**Thomas Ungerer-Rehkopf**
-Marseille, France
+**[Tom Ungerer](https://tomungerer.com)**  
+Marseille, France  
 [hello@facedown.io](mailto:hello@facedown.io)
