@@ -6,7 +6,7 @@ description: How Facedown handles your data.
 
 # Privacy Policy
 
-**Last updated: 23 October 2026**
+**Last updated: 2 November 2026**
 
 Facedown ("the game", "we") is a card game for Android and iOS made by **[Tom Ungerer](https://tomungerer.com)**, an independent developer based in Marseille, France. This policy explains what information the game uses, why, and the choices you have.
 
