@@ -212,6 +212,10 @@ h3 {
 	flex: none;
 }
 
+.button.gold:active{
+	box-shadow: 0 3px 0 #d9a03c;
+}
+
 /* ---------------------------------------------------------------- hero (the splash screen's light grey) */
 
 .hero {

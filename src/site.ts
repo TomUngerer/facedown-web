@@ -7,6 +7,6 @@ export const SITE = {
 		"Facedown is a fast card game of memory and quick hands: peek, swap, slap and call STOP before the llamas do. Coming soon to Android.",
 	email: "hello@facedown.io",
 	// Paste the store links here when the pages are live; while null the buttons show "Coming soon".
-	googlePlay: null as string | null,
+	googlePlay: "https://play.google.com/store/apps/details?id=io.facedown.game",
 	appStore: null as string | null,
 };
